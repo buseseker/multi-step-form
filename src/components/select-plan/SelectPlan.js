@@ -74,31 +74,31 @@ const SelectPlan = () => {
               <img className='mb-10' src={iconArcade} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Arcade</h5>
               <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$90/yr' : '$9/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
+              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
             <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
               <img className='mb-10' src={iconAdvanced} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Advanced</h5>
               <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$120/yr' : '$12/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
+              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
             <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
               <img className='mb-10' src={iconPro} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Pro</h5>
               <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$150/yr' : '$15/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
+              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
           </div>
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
             <div>
-              <span className={`mr-3 text-sm font-medium ${!isChecked ? 'text-marine-blue font-extrabold' : 'text-cool-gray dark:text-cool-gray font-extrabold'}`}>Monthly</span>
+              <span className={`mr-3 text-sm  ${!isChecked ? 'text-marine-blue font-extrabold' : 'text-cool-gray dark:text-cool-gray font-extrabold'}`}>Monthly</span>
             </div>
             <label className='relative inline-flex items-center cursor-pointer'>
               <input type='checkbox' value='' className='sr-only peer' checked={isChecked} onChange={handleToggle} />
               <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             </label>
             <div>
-              <span className={`ml-3 text-sm font-medium ${!isChecked ? 'text-cool-gray dark:text-cool-gray font-extrabold' : 'text-marine-blue font-extrabold'}`}>Yearly</span>
+              <span className={`ml-3 text-sm ${!isChecked ? 'text-cool-gray dark:text-cool-gray font-extrabold' : 'text-marine-blue font-extrabold'}`}>Yearly</span>
             </div>
           </div>
           <div className='btn w-full flex justify-between'>
