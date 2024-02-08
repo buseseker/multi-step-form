@@ -18,7 +18,7 @@ module.exports = {
         'alabaster': 'hsl(231, 100%, 99%)'
       },
       backgroundImage: {
-        'desktop-sidebar': "url('file:///C:/Users/seker/Desktop/multi-step-form/multi-step-form/src/assets/images/bg-sidebar-desktop.svg')",
+        'desktop-sidebar': "url('/src/assets/images/bg-sidebar-desktop.svg')",
       },
     },
   },
