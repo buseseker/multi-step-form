@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AddOns = () => {
   const navigate = useNavigate();
+
+  const [selectedCards, setSelectedCards] = useState([]);
+
+  const handleCheckBox = (card) => {
+    if (selectedCards.includes(card)) {
+      setSelectedCards(selectedCards.filter((c) => c !== card));
+    } else {
+      setSelectedCards([...selectedCards, card]);
+    }
+  };
+
+  const isSelected = (card) => selectedCards.includes(card);
 
   const handleGoBack = () => {
     navigate('/select-plan');
@@ -55,10 +67,15 @@ const AddOns = () => {
             <p className='text-cool-gray '>Add-ons help enhance your gaming experience.</p>
           </div>
           <div className='add-ons flex flex-col gap-y-10 w-full'>
-            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+            <div className={`add-on flex justify-between items-center w-full border ${isSelected(1) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
-                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                  <input
+                    type='checkbox'
+                    className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400'
+                    checked={isSelected(1)}
+                    onChange={() => handleCheckBox(1)}
+                  />
                 </label>
                 <div className='add-on-text'>
                   <h5 className='text-marine-blue font-extrabold'>Online service</h5>
@@ -69,28 +86,38 @@ const AddOns = () => {
                 <p>+$1/mo</p>
               </div>
             </div>
-            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+            <div className={`add-on flex justify-between items-center w-full border ${isSelected(2) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
-                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                  <input
+                    type='checkbox'
+                    className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400'
+                    checked={isSelected(2)}
+                    onChange={() => handleCheckBox(2)}
+                  />
                 </label>
                 <div className='add-on-text'>
-                <h5 className='text-marine-blue font-extrabold'>Larger storage</h5>
-                <p className='text-cool-gray'>Extra 1TB of cloud save</p>
+                  <h5 className='text-marine-blue font-extrabold'>Larger storage</h5>
+                  <p className='text-cool-gray'>Extra 1TB of cloud save</p>
                 </div>
               </div>
               <div className='price'>
                 <p>+$2/mo</p>
               </div>
             </div>
-            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+            <div className={`add-on flex justify-between items-center w-full border ${isSelected(3) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
-                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                  <input
+                    type='checkbox'
+                    className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400'
+                    checked={isSelected(3)}
+                    onChange={() => handleCheckBox(3)}
+                  />
                 </label>
                 <div className='add-on-text'>
-                <h5 className='text-marine-blue font-extrabold'>Customizable profile</h5>
-                <p className='text-cool-gray'>Custom theme on your profile</p>
+                  <h5 className='text-marine-blue font-extrabold'>Customizable profile</h5>
+                  <p className='text-cool-gray'>Custom theme on your profile</p>
                 </div>
               </div>
               <div className='price'>
