@@ -20,6 +20,10 @@ const AddOns = () => {
     navigate('/select-plan');
   };
 
+  const handleNextStep = () => {
+    navigate('/summary');
+  };
+
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
       <div className='form-container bg-white flex h-[65vh] w-1/2 p-4 rounded-lg'>
@@ -129,7 +133,7 @@ const AddOns = () => {
             <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
               Go Back
             </button>
-            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-4 hover:bg-button-hover-blue'>Next Step</button>
+            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-4 hover:bg-button-hover-blue' onClick={handleNextStep}>Next Step</button>
           </div>
         </div>
       </div>
