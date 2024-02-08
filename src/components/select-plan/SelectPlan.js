@@ -9,11 +9,22 @@ const SelectPlan = () => {
 
   const [isChecked, setIsChecked] = useState(true);
   const [selectedPlan, setSelectedPlan] = useState('yearly');
+  const [selectedCard, setSelectedCard] = useState(null);
 
   // Toggle durumu değiştiğinde çalışacak işlev
   const handleToggle = () => {
     setIsChecked(!isChecked); // Toggle durumunu tersine çevir
     setSelectedPlan(selectedPlan === 'monthly' ? 'yearly' : 'monthly');
+  };
+
+  const handleCardClick = (card) => {
+    if (selectedCard === card) {
+      // Eğer zaten seçilen kart ise, seçimini kaldır
+      setSelectedCard(null);
+    } else {
+      // Değilse, yeni kartı seç ve önceki seçimi kaldır
+      setSelectedCard(card);
+    }
   };
 
   const handleGoBack = () => {
@@ -70,23 +81,23 @@ const SelectPlan = () => {
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
           </div>
           <div className='plan-cards flex gap-x-4 w-full'>
-            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+          <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Arcade' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Arcade')}>
               <img className='mb-10' src={iconArcade} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Arcade</h5>
-              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$90/yr' : '$9/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
+              <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$90/yr' : '$9/mo'}</h5>
+              {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
-            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+            <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Advanced' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Advanced')}>
               <img className='mb-10' src={iconAdvanced} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Advanced</h5>
-              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$120/yr' : '$12/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
+              <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$120/yr' : '$12/mo'}</h5>
+              {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
-            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+            <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Pro' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Pro')}>
               <img className='mb-10' src={iconPro} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Pro</h5>
-              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$150/yr' : '$15/mo'}</h5>
-              {selectedPlan=== 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
+              <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$150/yr' : '$15/mo'}</h5>
+              {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
           </div>
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
