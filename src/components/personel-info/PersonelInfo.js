@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PersonelInfo = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -16,6 +19,8 @@ const PersonelInfo = () => {
       setName('');
       setEmail('');
       setPhone('');
+
+      navigate('/select-plan');
     } else {
       !name.trim() && setNameError(true);
       !email.trim() && setEmailError(true);
