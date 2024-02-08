@@ -49,17 +49,60 @@ const AddOns = () => {
             </div>
           </div>
         </div>
-        <div className='plan-section flex items-center flex-col gap-y-8 w-full px-24 pt-10'>
-          <div className='plan-header w-full flex flex-col gap-y-1'>
+        <div className='add-ons-section flex items-center flex-col gap-y-8 w-full px-24 pt-10'>
+          <div className='add-ons-header w-full flex flex-col gap-y-1'>
             <h1 className='text-h1 text-marine-blue font-black'>Pick add-ons</h1>
             <p className='text-cool-gray '>Add-ons help enhance your gaming experience.</p>
           </div>
-          <div className='plan-cards flex gap-x-4 w-full h-1/3 '></div>
+          <div className='add-ons flex flex-col gap-y-10 w-full'>
+            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+              <div className='flex gap-x-5'>
+                <label className='inline-flex items-center cursor-pointer'>
+                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                </label>
+                <div className='add-on-text'>
+                  <h5 className='text-marine-blue font-extrabold'>Online service</h5>
+                  <p className='text-cool-gray'>Access to multiplayer games</p>
+                </div>
+              </div>
+              <div className='price'>
+                <p>+$1/mo</p>
+              </div>
+            </div>
+            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+              <div className='flex gap-x-5'>
+                <label className='inline-flex items-center cursor-pointer'>
+                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                </label>
+                <div className='add-on-text'>
+                <h5 className='text-marine-blue font-extrabold'>Larger storage</h5>
+                <p className='text-cool-gray'>Extra 1TB of cloud save</p>
+                </div>
+              </div>
+              <div className='price'>
+                <p>+$2/mo</p>
+              </div>
+            </div>
+            <div className='add-on flex justify-between items-center w-full border border-light-gray rounded-lg h-20 px-5'>
+              <div className='flex gap-x-5'>
+                <label className='inline-flex items-center cursor-pointer'>
+                  <input type='checkbox' className='form-checkbox border-gray-300 rounded-md w-5 h-5 accent-indigo-600 checked:border-transparent focus:ring-blue-400' />
+                </label>
+                <div className='add-on-text'>
+                <h5 className='text-marine-blue font-extrabold'>Customizable profile</h5>
+                <p className='text-cool-gray'>Custom theme on your profile</p>
+                </div>
+              </div>
+              <div className='price'>
+                <p>+$2/mo</p>
+              </div>
+            </div>
+          </div>
           <div className='btn w-full flex justify-between'>
-            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
+            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
               Go Back
             </button>
-            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'>Next Step</button>
+            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-4 hover:bg-button-hover-blue'>Next Step</button>
           </div>
         </div>
       </div>
