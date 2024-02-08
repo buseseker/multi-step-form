@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 import PersonelInfo from './components/personel-info/PersonelInfo';
 import SelectPlan from './components/select-plan/SelectPlan';
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path='personel-info' element={<PersonelInfo />} />
         <Route path='select-plan' element={<SelectPlan />} />
+        <Route path='/' element={<Navigate to='/personel-info' />} />
       </Routes>
     </BrowserRouter>
   );
