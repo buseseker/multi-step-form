@@ -6,11 +6,14 @@ import iconPro from '../../assets/images/icon-pro.svg';
 
 const SelectPlan = () => {
   const navigate = useNavigate();
+
   const [isChecked, setIsChecked] = useState(true);
+  const [selectedPlan, setSelectedPlan] = useState('yearly');
 
   // Toggle durumu değiştiğinde çalışacak işlev
   const handleToggle = () => {
-    setIsChecked(!isChecked); // Mevcut durumu tersine çevir
+    setIsChecked(!isChecked); // Toggle durumunu tersine çevir
+    setSelectedPlan(selectedPlan === 'monthly' ? 'yearly' : 'monthly');
   };
 
   const handleGoBack = () => {
@@ -66,28 +69,29 @@ const SelectPlan = () => {
             <h1 className='text-h1 text-marine-blue font-black'>Select your plan</h1>
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
           </div>
-          <div className='plan-cards flex gap-x-4 w-full h-40 '>
+          <div className='plan-cards flex gap-x-4 w-full'>
             <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
               <img className='mb-10' src={iconArcade} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Arcade</h5>
-              <h5 className='text-cool-gray'>$9/mo</h5>
+              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$90/yr' : '$9/mo'}</h5>
+              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
             </div>
             <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
-              <img className='mb-10'  src={iconAdvanced} alt='' />
+              <img className='mb-10' src={iconAdvanced} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Advanced</h5>
-              <h5 className='text-cool-gray'>$12/mo</h5>
+              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$120/yr' : '$12/mo'}</h5>
+              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
             </div>
             <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
-              <img className='mb-10'  src={iconPro} alt='' />
+              <img className='mb-10' src={iconPro} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Pro</h5>
-              <h5 className='text-cool-gray'>$15/mo</h5>
+              <h5 className='text-cool-gray'>{selectedPlan=== 'yearly' ? '$150/yr' : '$15/mo'}</h5>
+              {selectedPlan=== 'yearly' && <p className='text-xs'>2 months free</p>}
             </div>
           </div>
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
             <div>
-              <span className={`mr-3 text-sm font-medium ${!isChecked ? 'text-marine-blue font-extrabold' : 'text-cool-gray font-extrabold dark:text-cool-gray font-extrabold'}`}>
-                Monthly
-              </span>
+              <span className={`mr-3 text-sm font-medium ${!isChecked ? 'text-marine-blue font-extrabold' : 'text-cool-gray dark:text-cool-gray font-extrabold'}`}>Monthly</span>
             </div>
             <label className='relative inline-flex items-center cursor-pointer'>
               <input type='checkbox' value='' className='sr-only peer' checked={isChecked} onChange={handleToggle} />
