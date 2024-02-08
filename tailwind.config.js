@@ -15,6 +15,7 @@ module.exports = {
         'light-gray': 'hsl(229, 24%, 87%)',
         'cool-gray': 'hsl(231, 11%, 63%)',
         'marine-blue': 'hsl(213, 96%, 18%)',
+        'button-hover-blue': 'hsl(213, 96%, 30%)'
       },
       backgroundImage: {
         'desktop-sidebar': "url('/assets/images/bg-sidebar-desktop.svg')"
