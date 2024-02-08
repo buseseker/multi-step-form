@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import iconAdvanced from '../../assets/images/icon-advanced.svg';
+import iconArcade from '../../assets/images/icon-arcade.svg';
+import iconPro from '../../assets/images/icon-pro.svg';
 
 const SelectPlan = () => {
   const navigate = useNavigate();
@@ -12,6 +15,10 @@ const SelectPlan = () => {
 
   const handleGoBack = () => {
     navigate('/personel-info');
+  };
+
+  const handleNextStep = () => {
+    navigate('/add-ons');
   };
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
@@ -59,21 +66,21 @@ const SelectPlan = () => {
             <h1 className='text-h1 text-marine-blue font-black'>Select your plan</h1>
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
           </div>
-          <div className='plan-cards flex gap-x-4 w-full h-1/3 '>
-            <div className='card border border-light-gray w-1/3 rounded-lg'>
-              <img src='file:///C:/Users/seker/Desktop/multi-step-form/multi-step-form/src/assets/images/icon-advanced.svg' alt='' />
-              <h5>Arcade</h5>
-              <h5>$9/mo</h5>
+          <div className='plan-cards flex gap-x-4 w-full h-40 '>
+            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+              <img className='mb-10' src={iconArcade} alt='' />
+              <h5 className='text-marine-blue font-extrabold'>Arcade</h5>
+              <h5 className='text-cool-gray'>$9/mo</h5>
             </div>
-            <div className='card border border-light-gray w-1/3 rounded-lg'>
-              <img src='file:///C:/Users/seker/Desktop/multi-step-form/multi-step-form/src/assets/images/icon-advanced.svg' alt='' />
-              <h5>Advanced</h5>
-              <h5>$12/mo</h5>
+            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+              <img className='mb-10'  src={iconAdvanced} alt='' />
+              <h5 className='text-marine-blue font-extrabold'>Advanced</h5>
+              <h5 className='text-cool-gray'>$12/mo</h5>
             </div>
-            <div className='card border border-light-gray w-1/3 rounded-lg'>
-              <img src='file:///C:/Users/seker/Desktop/multi-step-form/multi-step-form/src/assets/images/icon-advanced.svg' alt='' />
-              <h5>Pro</h5>
-              <h5>$15/mo</h5>
+            <div className='card border border-light-gray w-1/3 rounded-lg p-5'>
+              <img className='mb-10'  src={iconPro} alt='' />
+              <h5 className='text-marine-blue font-extrabold'>Pro</h5>
+              <h5 className='text-cool-gray'>$15/mo</h5>
             </div>
           </div>
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
@@ -91,8 +98,12 @@ const SelectPlan = () => {
             </div>
           </div>
           <div className='btn w-full flex justify-between'>
-            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>Go Back</button>
-            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'>Next Step</button>
+            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
+              Go Back
+            </button>
+            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue' onClick={handleNextStep}>
+              Next Step
+            </button>
           </div>
         </div>
       </div>
