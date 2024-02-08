@@ -5,6 +5,7 @@ module.exports = {
       fontSize: {
         h5: '0.83em',
         h1: '2em',
+        xs: '0.8rem'
       },
       fontFamily: {
         ubuntu: ['Ubuntu', 'sans-serif'],
