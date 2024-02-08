@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SelectPlan = () => {
+  const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(true);
 
   // Toggle durumu değiştiğinde çalışacak işlev
@@ -8,6 +10,9 @@ const SelectPlan = () => {
     setIsChecked(!isChecked); // Mevcut durumu tersine çevir
   };
 
+  const handleGoBack = () => {
+    navigate('/personel-info');
+  };
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
       <div className='form-container bg-white flex h-[65vh] w-1/2 p-4 rounded-lg'>
@@ -86,10 +91,9 @@ const SelectPlan = () => {
             </div>
           </div>
           <div className='btn w-full flex justify-between'>
-          <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue'>Go Back</button>
-          <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'>Next Step</button>
+            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>Go Back</button>
+            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'>Next Step</button>
           </div>
-         
         </div>
       </div>
     </div>
