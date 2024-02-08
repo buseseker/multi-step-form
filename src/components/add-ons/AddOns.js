@@ -47,8 +47,8 @@ const AddOns = () => {
             </div>
           </div>
           <div className='step flex items-center gap-x-4'>
-            <div className='step-number flex justify-center items-center border border-white w-10 h-10 rounded-full'>
-              <p className='text-white'>3</p>
+            <div className='step-number flex justify-center items-center bg-light-blue w-10 h-10 rounded-full'>
+              <p className='text-black font-extrabold'>3</p>
             </div>
             <div className='step-text'>
               <h5 className='text-cool-gray font-thin text-h5'>STEP 3</h5>
