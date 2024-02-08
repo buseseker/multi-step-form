@@ -16,7 +16,9 @@ module.exports = {
         'marine-blue': 'hsl(213, 96%, 18%)',
         'button-hover-blue': 'hsl(213, 96%, 30%)',
         'magnolia': 'hsl(217, 100%, 97%)',
-        'alabaster': 'hsl(231, 100%, 99%)'
+        'alabaster': 'hsl(231, 100%, 99%)',
+        'purplish-blue': 'hsl(243, 100%, 62%)',
+        'pastel-blue': 'hsl(228, 100%, 84%)',
       },
       backgroundImage: {
         'desktop-sidebar': "url('/src/assets/images/bg-sidebar-desktop.svg')",
