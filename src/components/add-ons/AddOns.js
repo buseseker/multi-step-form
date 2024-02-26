@@ -3,14 +3,24 @@ import { useNavigate } from 'react-router-dom';
 import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 
 const AddOns = () => {
-  const { selectedAddOns, setSelectedAddOns, selectedPlan } = useContext(SelectedServiceContext);
+  const { selectedAddOns, setSelectedAddOns, selectedPlan, selectedAddOnPrices, setSelectedAddOnPrices } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
 
-  const handleCheckBox = (card) => {
-    if (selectedAddOns.includes(card)) {
-      setSelectedAddOns(selectedAddOns.filter((c) => c !== card));
+  const addOnPrices = {
+    1: { yearly: 10, monthly: 1 }, // Eklenti ID'sine göre fiyatları tutar
+    2: { yearly: 20, monthly: 2 },
+    3: { yearly: 20, monthly: 2 },
+  };
+
+  const handleCheckBox = (id) => {
+    const price = addOnPrices[id]; // Eklenti ID'sine göre fiyatı al
+    if (selectedAddOns.includes(id)) {
+      setSelectedAddOns(selectedAddOns.filter((addOnId) => addOnId !== id));
+      const { [id]: removedKey, ...rest } = selectedAddOnPrices; // Seçilen ek özelliğin fiyatını kaldır
+      setSelectedAddOnPrices(rest); // Kalan fiyatları güncelle
     } else {
-      setSelectedAddOns([...selectedAddOns, card]);
+      setSelectedAddOns([...selectedAddOns, id]);
+      setSelectedAddOnPrices({ ...selectedAddOnPrices, [id]: price }); // Eklenti fiyatlarını sakla
     }
   };
 
@@ -23,6 +33,9 @@ const AddOns = () => {
   const handleNextStep = () => {
     navigate('/summary');
   };
+
+  console.log(selectedAddOns);
+  console.log(selectedAddOnPrices);
 
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
