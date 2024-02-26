@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 import iconAdvanced from '../../assets/images/icon-advanced.svg';
 import iconArcade from '../../assets/images/icon-arcade.svg';
 import iconPro from '../../assets/images/icon-pro.svg';
 
 const SelectPlan = () => {
+  const { selectedPlan, setSelectedPlan, selectedCard, setSelectedCard,selectedPrice, setSelectedPrice } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
 
   const [isChecked, setIsChecked] = useState(true);
-  const [selectedPlan, setSelectedPlan] = useState('yearly');
-  const [selectedCard, setSelectedCard] = useState(null);
 
   // Toggle durumu değiştiğinde çalışacak işlev
   const handleToggle = () => {
@@ -17,16 +17,20 @@ const SelectPlan = () => {
     setSelectedPlan(selectedPlan === 'monthly' ? 'yearly' : 'monthly');
   };
 
-  const handleCardClick = (card) => {
+  const handleCardClick = (card, price) => {
     if (selectedCard === card) {
-      // Eğer zaten seçilen kart ise, seçimini kaldır
       setSelectedCard(null);
+      setSelectedPrice({});
     } else {
-      // Değilse, yeni kartı seç ve önceki seçimi kaldır
       setSelectedCard(card);
+      setSelectedPrice(price);
     }
   };
+  
 
+  console.log(selectedPlan);
+  console.log(selectedCard);
+  console.log(selectedPrice);
   const handleGoBack = () => {
     navigate('/personel-info');
   };
@@ -81,19 +85,28 @@ const SelectPlan = () => {
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
           </div>
           <div className='plan-cards flex gap-x-4 w-full'>
-          <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Arcade' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Arcade')}>
+            <div
+              className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Arcade' ? 'border border-violet-900' : 'border border-light-gray'}`}
+              onClick={() => handleCardClick('Arcade', { yearly: '$90/yr', monthly: '$9/mo' })}
+              >
               <img className='mb-10' src={iconArcade} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Arcade</h5>
               <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$90/yr' : '$9/mo'}</h5>
               {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
-            <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Advanced' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Advanced')}>
+            <div
+              className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Advanced' ? 'border border-violet-900' : 'border border-light-gray'}`}
+              onClick={() => handleCardClick('Advanced', { yearly: '$120/yr', monthly: '$12/mo' })}
+              >
               <img className='mb-10' src={iconAdvanced} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Advanced</h5>
               <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$120/yr' : '$12/mo'}</h5>
               {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
             </div>
-            <div className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Pro' ? 'border border-violet-900' : 'border border-light-gray'}`} onClick={() => handleCardClick('Pro')}>
+            <div
+              className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === 'Pro' ? 'border border-violet-900' : 'border border-light-gray'}`}
+              onClick={() => handleCardClick('Pro', { yearly: '$150/yr', monthly: '$15/mo' })}
+              >
               <img className='mb-10' src={iconPro} alt='' />
               <h5 className='text-marine-blue font-extrabold'>Pro</h5>
               <h5 className='text-cool-gray'>{selectedPlan === 'yearly' ? '$150/yr' : '$15/mo'}</h5>
