@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 
 const AddOns = () => {
+  const { selectedAddOns, setSelectedAddOns, selectedPlan } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
 
-  const [selectedCards, setSelectedCards] = useState([]);
-
   const handleCheckBox = (card) => {
-    if (selectedCards.includes(card)) {
-      setSelectedCards(selectedCards.filter((c) => c !== card));
+    if (selectedAddOns.includes(card)) {
+      setSelectedAddOns(selectedAddOns.filter((c) => c !== card));
     } else {
-      setSelectedCards([...selectedCards, card]);
+      setSelectedAddOns([...selectedAddOns, card]);
     }
   };
 
-  const isSelected = (card) => selectedCards.includes(card);
+  const isSelected = (card) => selectedAddOns.includes(card);
 
   const handleGoBack = () => {
     navigate('/select-plan');
@@ -71,7 +71,9 @@ const AddOns = () => {
             <p className='text-cool-gray '>Add-ons help enhance your gaming experience.</p>
           </div>
           <div className='add-ons flex flex-col gap-y-10 w-full'>
-            <div className={`add-on flex justify-between items-center w-full border ${isSelected(1) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
+            <div
+              className={`add-on flex justify-between items-center w-full border ${isSelected(1) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}
+            >
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
                   <input
@@ -87,10 +89,12 @@ const AddOns = () => {
                 </div>
               </div>
               <div className='price'>
-                <p>+$1/mo</p>
+                <p>{selectedPlan === 'monthly' ? '+$1/mo' : '+$10/yr'}</p>
               </div>
             </div>
-            <div className={`add-on flex justify-between items-center w-full border ${isSelected(2) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
+            <div
+              className={`add-on flex justify-between items-center w-full border ${isSelected(2) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}
+            >
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
                   <input
@@ -106,10 +110,12 @@ const AddOns = () => {
                 </div>
               </div>
               <div className='price'>
-                <p>+$2/mo</p>
+                <p>{selectedPlan === 'monthly' ? '+$2/mo' : '+$20/yr'}</p>
               </div>
             </div>
-            <div className={`add-on flex justify-between items-center w-full border ${isSelected(3) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
+            <div
+              className={`add-on flex justify-between items-center w-full border ${isSelected(3) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}
+            >
               <div className='flex gap-x-5'>
                 <label className='inline-flex items-center cursor-pointer'>
                   <input
@@ -125,15 +131,18 @@ const AddOns = () => {
                 </div>
               </div>
               <div className='price'>
-                <p>+$2/mo</p>
+                <p>{selectedPlan === 'monthly' ? '+$2/mo' : '+$20/yr'}</p>
               </div>
             </div>
-          </div>
-          <div className='btn w-full flex justify-between'>
-            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
-              Go Back
-            </button>
-            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-4 hover:bg-button-hover-blue' onClick={handleNextStep}>Next Step</button>
+
+            <div className='btn w-full flex justify-between'>
+              <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
+                Go Back
+              </button>
+              <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-4 hover:bg-button-hover-blue' onClick={handleNextStep}>
+                Next Step
+              </button>
+            </div>
           </div>
         </div>
       </div>
