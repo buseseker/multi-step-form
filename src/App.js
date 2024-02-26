@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
-import PersonelInfo from './components/personel-info/PersonelInfo';
-import SelectPlan from './components/select-plan/SelectPlan';
-import AddOns from './components/add-ons/AddOns';
-import Summary from './components/summary/Summary';
+import PersonelInfo from './pages/personel-info/PersonelInfo';
+import SelectPlan from './pages/select-plan/SelectPlan';
+import AddOns from './pages/add-ons/AddOns';
+import Summary from './pages/summary/Summary';
 import SelectedServiceProvider from './context/SelectedServiceContext'; // Context'u doğru şekilde içe aktardık
 
 function App() {
