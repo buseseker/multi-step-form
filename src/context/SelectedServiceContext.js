@@ -7,9 +7,10 @@ const SelectedServiceProvider = ({ children }) => {
   const [selectedAddOns, setSelectedAddOns] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState('yearly');
   const [selectedPrice, setSelectedPrice] = useState({});
+  const [selectedAddOnPrices, setSelectedAddOnPrices] = useState({});
 
   return (
-    <SelectedServiceContext.Provider value={{ selectedPlan, setSelectedPlan, selectedCard, setSelectedCard, selectedAddOns, setSelectedAddOns, selectedPrice, setSelectedPrice }}>
+    <SelectedServiceContext.Provider value={{ selectedPlan, setSelectedPlan, selectedCard, setSelectedCard, selectedAddOns, setSelectedAddOns, selectedPrice, setSelectedPrice, selectedAddOnPrices, setSelectedAddOnPrices }}>
       {children}
     </SelectedServiceContext.Provider>
   );
