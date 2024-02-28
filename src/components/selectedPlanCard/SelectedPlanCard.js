@@ -21,7 +21,7 @@ const SelectedPlanCard = ({ plan }) => {
       <img className='mb-10' src={plan.icon} alt='' />
       <h5 className='text-marine-blue font-extrabold'>{plan.name}</h5>
       <h5 className='text-cool-gray'>{selectedPlan.type === 'yearly' ? `$${plan.yearly}/yr` : `$${plan.monthly}/mo`}</h5>
-      {selectedPlan === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
+      {selectedPlan.type === 'yearly' && <p className='text-xs text-marine-blue'>2 months free</p>}
     </div>
   );
 };
