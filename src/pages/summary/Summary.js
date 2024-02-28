@@ -1,43 +1,40 @@
 import React, { useContext } from 'react';
 import { SelectedServiceContext } from '../../context/SelectedServiceContext';
+import SelectedAddOnCard from '../../components/selectedAddOnCard/SelectedAddOnCard';
+import { useNavigate } from 'react-router-dom';
 
 const Summary = () => {
-  const { selectedPlan, selectedCard, selectedAddOns, selectedAddOnPrices, selectedPrice } = useContext(SelectedServiceContext);
+  const { selectedPlan, selectedCard, selectedAddOnIds, addOns, plans } = useContext(SelectedServiceContext);
+  const navigate = useNavigate();
+
+  const selectedAddOns = selectedAddOnIds.map((addOnId) => {
+    return addOns.find((addOn) => addOn.id === addOnId);
+  });
+
+  let planPrice = 0;
+  let addOnPrice = 0;
 
   // Seçilen plana göre fiyatı belirlemek
   const getPlanPrice = () => {
-    return selectedPlan === 'monthly' ? selectedPrice.monthly : selectedPrice.yearly;
+    plans.forEach((plan) => {
+      if (plan.id === selectedPlan.id) {
+        planPrice = selectedPlan.type === 'yearly' ? plan.yearly : plan.monthly;
+      }
+    });
+
+    return planPrice;
   };
 
-    // Seçilen addon'ların ve fiyatlarının listesi
-    const getSelectedAddOns = () => {
-      return selectedAddOns.map((addOnId) => (
-        <div className='summary flex justify-between' key={addOnId}>
-          <p>{getAddOnName(addOnId)}</p>
-          <p>+${getAddOnPrice(addOnId)}/mo</p>
-        </div>
-      ));
-    };
+  const getTotalPrice = () => {
+    selectedAddOns.forEach((addOn) => {
+      addOnPrice += selectedPlan.type === 'yearly' ? addOn.yearly : addOn.monthly;
+    });
 
-      // Addon ID'sine göre addon ismini alma
-  const getAddOnName = (addOnId) => {
-    // Addon isimleri ve ID'leri burada alınacak
-    // Örnek olarak sadece birkaç örnek gösteriyorum, gerçek verilere göre güncellenmeli
-    switch (addOnId) {
-      case 1:
-        return 'Online Service';
-      case 2:
-        return 'Larger Storage';
-      case 3:
-        return 'Customizable Profile';
-      default:
-        return '';
-    }
+    return planPrice + addOnPrice;
   };
 
-   // Addon ID'sine göre addon fiyatını alma
-   const getAddOnPrice = (addOnId) => {
-    return selectedAddOnPrices[addOnId];
+  const handleGoBack = () => {
+    navigate('/personel-info');
   };
 
   return (
@@ -86,27 +83,43 @@ const Summary = () => {
             <h1 className='text-h1 text-marine-blue font-black'>Finishing Up</h1>
             <p className='text-cool-gray '>Double-check everything looks OK before confirming.</p>
           </div>
-          <div className='add-ons flex flex-col gap-y-2 w-full border border-black'>
-            <div className='summary flex justify-between'>
-              <div className='service-text'>
-                {selectedCard} {selectedPlan === 'monthly' ? '(Monthly)' : '(Yearly)'} <p className='cursor-pointer'>Change</p>
+          <div className='add-ons flex flex-col gap-y-2 w-full bg-magnolia p-5 rounded-lg'>
+            <div className='summary'>
+              <div className='service-text flex justify-between mb-2'>
+                <p className='text-marine-blue font-black'>
+                  {selectedCard} {selectedPlan.type === 'monthly' ? '(Monthly)' : '(Yearly)'}
+                </p>
+                <div className='service-price text-marine-blue font-black'>
+                  <p>
+                    ${getPlanPrice()}
+                    {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
+                  </p>
+                </div>
               </div>
-              <div className='service-price'></div>
-              <p>{getPlanPrice()}</p>
             </div>
             <hr />
-            <div className='summary flex justify-between'>
-              <p>Online Service</p>
-              <p>+$1/mo</p>
+            <div className='flex flex-col gap-y-5 mt-2'>
+              {selectedAddOns.map((selectedAddOn) => {
+                return <SelectedAddOnCard key={selectedAddOn.id} selectedAddOn={selectedAddOn} />;
+              })}
             </div>
-            <div className='summary flex justify-between'>
-              <p>Larger Storage</p> 
-              <p>+$2/mo</p>
-            </div>
-            <div className='summary total-price flex justify-between'>
-              <p>Total (per month)</p>
-              <p>+$12/mo</p>
-            </div>
+          </div>
+          <div className='flex justify-between bg-white w-full pr-5 pl-5'>
+            <p className='text-cool-gray'>{`Total ${
+              selectedPlan.type === 'monthly' ? '(per month)' : '(per year)'
+            }`}</p>
+            <p className='text-purplish-blue font-black text-xl'>
+              +${getTotalPrice()}
+              {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
+            </p>
+          </div>
+      <div className='btn w-full flex justify-between'>
+            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
+              Go Back
+            </button>
+            <button className='btn bg-purplish-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue' >
+              Confirm
+            </button>
           </div>
         </div>
       </div>
