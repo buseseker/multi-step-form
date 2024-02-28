@@ -37,6 +37,10 @@ const Summary = () => {
     navigate('/add-ons');
   };
 
+  const handleConfirm = () => {
+    navigate('/thank-you');
+  };
+
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
       <div className='form-container bg-white flex h-[65vh] w-1/2 p-4 rounded-lg'>
@@ -113,11 +117,17 @@ const Summary = () => {
               {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
             </p>
           </div>
-      <div className='btn w-full flex justify-between mt-7'>
-            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
+          <div className='btn w-full flex justify-between mt-7'>
+            <button
+              className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue'
+              onClick={handleGoBack}
+            >
               Go Back
             </button>
-            <button className='btn bg-purplish-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue' >
+            <button
+              className='btn bg-purplish-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'
+              onClick={handleConfirm}
+            >
               Confirm
             </button>
           </div>
