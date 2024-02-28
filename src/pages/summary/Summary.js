@@ -34,7 +34,7 @@ const Summary = () => {
   };
 
   const handleGoBack = () => {
-    navigate('/personel-info');
+    navigate('/add-ons');
   };
 
   return (
