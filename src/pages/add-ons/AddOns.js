@@ -1,15 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 import AddOnCard from '../../components/addOnCard/AddOnCard';
 
 const AddOns = () => {
-  const navigate = useNavigate();
+  const { addOns, selectedPlan } = useContext(SelectedServiceContext);
 
-  const addOns = [
-    { id: '1', name: 'Online Service', description: 'Access to multiplayer games', yearly: 10, monthly: 1 }, // Eklenti ID'sine göre fiyatları tutar
-    { id: '2', name: 'Larger Storage', description: 'Extra 1TB of cloud save', yearly: 20, monthly: 2 },
-    { id: '3', name: 'Customizable Profile', description: 'Custom theme on your profile', yearly: 20, monthly: 2 },
-  ];
+  const navigate = useNavigate();
 
   const handleGoBack = () => {
     navigate('/select-plan');
@@ -67,7 +64,7 @@ const AddOns = () => {
           </div>
           <div className='add-ons flex flex-col gap-y-10 w-full'>
             {addOns.map((addOn) => {
-             return <AddOnCard key={addOn.id} addOn={addOn} />;
+              return <AddOnCard key={addOn.id} addOn={addOn} />;
             })}
             <div className='btn w-full flex justify-between'>
               <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
