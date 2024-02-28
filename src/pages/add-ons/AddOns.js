@@ -4,7 +4,7 @@ import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 import AddOnCard from '../../components/addOnCard/AddOnCard';
 
 const AddOns = () => {
-  const { addOns, selectedPlan } = useContext(SelectedServiceContext);
+  const { addOns} = useContext(SelectedServiceContext);
 
   const navigate = useNavigate();
 
