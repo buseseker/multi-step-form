@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 import SelectedPlanCard from '../../components/selectedPlanCard/SelectedPlanCard';
@@ -6,8 +6,6 @@ import SelectedPlanCard from '../../components/selectedPlanCard/SelectedPlanCard
 const SelectPlan = () => {
   const { selectedPlan, setSelectedPlan, plans } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
-
-  //const [isChecked, setIsChecked] = useState(true);
 
   // Toggle durumu değiştiğinde çalışacak işlev
   const handleToggle = () => {
@@ -20,6 +18,11 @@ const SelectPlan = () => {
   };
 
   const handleNextStep = () => {
+    if (!selectedPlan.id) {
+      alert('Please select a plan before proceeding to the next step.');
+      return;
+    }
+
     navigate('/add-ons');
   };
 
@@ -76,25 +79,49 @@ const SelectPlan = () => {
           </div>
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
             <div>
-              <span className={`mr-3 text-sm  ${!selectedPlan.type === 'yearly' ? 'text-marine-blue font-extrabold' : 'text-cool-gray dark:text-cool-gray font-extrabold'}`}>
+              <span
+                className={`mr-3 text-sm  ${
+                  !selectedPlan.type === 'yearly'
+                    ? 'text-marine-blue font-extrabold'
+                    : 'text-cool-gray dark:text-cool-gray font-extrabold'
+                }`}
+              >
                 Monthly
               </span>
             </div>
             <label className='relative inline-flex items-center cursor-pointer'>
-              <input type='checkbox' value='' className='sr-only peer' checked={selectedPlan.type === 'yearly'} onChange={handleToggle} />
+              <input
+                type='checkbox'
+                value=''
+                className='sr-only peer'
+                checked={selectedPlan.type === 'yearly'}
+                onChange={handleToggle}
+              />
               <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             </label>
             <div>
-              <span className={`ml-3 text-sm ${!selectedPlan.type === 'yearly' ? 'text-cool-gray dark:text-cool-gray font-extrabold' : 'text-marine-blue font-extrabold'}`}>
+              <span
+                className={`ml-3 text-sm ${
+                  !selectedPlan.type === 'yearly'
+                    ? 'text-cool-gray dark:text-cool-gray font-extrabold'
+                    : 'text-marine-blue font-extrabold'
+                }`}
+              >
                 Yearly
               </span>
             </div>
           </div>
           <div className='btn w-full flex justify-between'>
-            <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
+            <button
+              className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue'
+              onClick={handleGoBack}
+            >
               Go Back
             </button>
-            <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue' onClick={handleNextStep}>
+            <button
+              className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'
+              onClick={handleNextStep}
+            >
               Next Step
             </button>
           </div>
