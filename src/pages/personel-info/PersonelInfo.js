@@ -83,7 +83,9 @@ const PersonelInfo = () => {
                   {nameError && <p className='text-red-700 font-black'>This field is required</p>}
                 </div>
                 <input
-                  className={`border ${emailError ? 'border-red-700' : 'border-cool-gray'} py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
+                  className={`border ${
+                    emailError ? 'border-red-700' : 'border-cool-gray'
+                  } py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
                   type='text'
                   id='name'
                   name='name'
@@ -102,7 +104,9 @@ const PersonelInfo = () => {
                   {emailError && <p className='text-red-700 font-black'>This field is required</p>}
                 </div>
                 <input
-                  className={`border ${emailError ? 'border-red-700' : 'border-cool-gray'} py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
+                  className={`border ${
+                    emailError ? 'border-red-700' : 'border-cool-gray'
+                  } py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
                   type='email'
                   name='email'
                   id='email'
@@ -121,7 +125,9 @@ const PersonelInfo = () => {
                   {phoneError && <p className='text-red-700 font-black'>This field is required</p>}
                 </div>
                 <input
-                  className={`border ${emailError ? 'border-red-700' : 'border-cool-gray'} py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
+                  className={`border ${
+                    emailError ? 'border-red-700' : 'border-cool-gray'
+                  } py-2 pl-4 rounded-lg mt-2 w-full font-bold`}
                   type='tel'
                   placeholder='e.g +1 234 567 890'
                   onChange={(event) => {
@@ -130,7 +136,10 @@ const PersonelInfo = () => {
                   value={phone}
                 />
               </div>
-              <button className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end mr-20 mt-16 hover:bg-button-hover-blue' onClick={handleSubmit}>
+              <button
+                className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end mt-16 hover:bg-button-hover-blue'
+                type='submit'
+              >
                 Next Step
               </button>
             </form>
