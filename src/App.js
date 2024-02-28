@@ -9,7 +9,7 @@ import SelectedServiceProvider from './context/SelectedServiceContext'; // Conte
 function App() {
   return (
     <BrowserRouter>
-      <SelectedServiceProvider> {/* SelectedServiceProvider bileşenini burada kullanmalısınız */}
+      <SelectedServiceProvider>
         <Routes>
           <Route path='/personel-info' element={<PersonelInfo />} />
           <Route path='/select-plan' element={<SelectPlan />} />
@@ -17,7 +17,7 @@ function App() {
           <Route path='/summary' element={<Summary />} />
           <Route path='/' element={<Navigate to='/personel-info' />} />
         </Routes>
-      </SelectedServiceProvider> {/* Kapatma etiketini ekledik */}
+      </SelectedServiceProvider>
     </BrowserRouter>
   );
 }
