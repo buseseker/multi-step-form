@@ -113,7 +113,7 @@ const Summary = () => {
               {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
             </p>
           </div>
-      <div className='btn w-full flex justify-between'>
+      <div className='btn w-full flex justify-between mt-7'>
             <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue' onClick={handleGoBack}>
               Go Back
             </button>

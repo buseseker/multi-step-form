@@ -62,11 +62,11 @@ const AddOns = () => {
             <h1 className='text-h1 text-marine-blue font-black'>Pick add-ons</h1>
             <p className='text-cool-gray '>Add-ons help enhance your gaming experience.</p>
           </div>
-          <div className='add-ons flex flex-col gap-y-10 w-full'>
+          <div className='add-ons flex flex-col gap-y-5 w-full'>
             {addOns.map((addOn) => {
               return <AddOnCard key={addOn.id} addOn={addOn} />;
             })}
-            <div className='btn w-full flex justify-between'>
+            <div className='btn w-full flex justify-between mt-8'>
               <button className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-4 hover:text-marine-blue' onClick={handleGoBack}>
                 Go Back
               </button>
