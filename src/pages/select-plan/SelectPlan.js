@@ -7,10 +7,8 @@ const SelectPlan = () => {
   const { selectedPlan, setSelectedPlan, plans } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
 
-  // Toggle durumu değiştiğinde çalışacak işlev
   const handleToggle = () => {
-    //setIsChecked(!isChecked); // Toggle durumunu tersine çevir
-    setSelectedPlan({ id: selectedPlan.id, type: selectedPlan.type === 'yearly' ? 'monthly' : 'yearly' });
+    setSelectedPlan((prevState) => ({ ...prevState, type: prevState.type === 'yearly' ? 'monthly' : 'yearly' }));
   };
 
   const handleGoBack = () => {
@@ -80,10 +78,10 @@ const SelectPlan = () => {
           <div className='toggle flex justify-center ites-center bg-alabaster w-full p-3'>
             <div>
               <span
-                className={`mr-3 text-sm  ${
-                  !selectedPlan.type === 'yearly'
-                    ? 'text-marine-blue font-extrabold'
-                    : 'text-cool-gray dark:text-cool-gray font-extrabold'
+                className={`mr-3 text-sm ${
+                  selectedPlan.type === 'yearly'
+                    ? 'text-cool-gray dark:text-cool-gray'
+                    : 'text-marine-blue font-extrabold'
                 }`}
               >
                 Monthly
@@ -102,7 +100,7 @@ const SelectPlan = () => {
             <div>
               <span
                 className={`ml-3 text-sm ${
-                  !selectedPlan.type === 'yearly'
+                  selectedPlan.type === 'monthly'
                     ? 'text-cool-gray dark:text-cool-gray font-extrabold'
                     : 'text-marine-blue font-extrabold'
                 }`}
