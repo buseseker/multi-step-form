@@ -2,25 +2,18 @@ import React, { useContext } from 'react';
 import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 
 const AddOnCard = ({ addOn }) => {
+  const { selectedAddOnIds, setSelectedAddOnIds, selectedPlan } = useContext(SelectedServiceContext);
 
-    const { selectedAddOns, setSelectedAddOns, selectedPlan, selectedAddOnPrices, setSelectedAddOnPrices } = useContext(SelectedServiceContext);
+  const handleCheckBox = (id) => {
+    if (selectedAddOnIds.includes(id)) {
+      setSelectedAddOnIds(selectedAddOnIds.filter((addOnId) => addOnId !== id));
+    } else {
+      setSelectedAddOnIds([...selectedAddOnIds, id]);
+    }
+  };
 
-    const handleCheckBox = (id) => {
-        const price = addOn[id]; // Eklenti ID'sine göre fiyatı al
-        if (selectedAddOns.includes(id)) {
-          setSelectedAddOns(selectedAddOns.filter((addOnId) => addOnId !== id));
-          const { [id]: removedKey, ...rest } = selectedAddOnPrices; // Seçilen ek özelliğin fiyatını kaldır
-          setSelectedAddOnPrices(rest); // Kalan fiyatları güncelle
-        } else {
-          setSelectedAddOns([...selectedAddOns, id]);
-          setSelectedAddOnPrices({ ...selectedAddOnPrices, [id]: price }); // Eklenti fiyatlarını sakla
-        }
-      };
+  const isSelected = (card) => selectedAddOnIds.includes(card);
 
-      const isSelected = (card) => selectedAddOns.includes(card);
-
-      console.log(selectedAddOns);
-      console.log(selectedAddOnPrices);
   return (
     <div className={`add-on flex justify-between items-center w-full border ${isSelected(addOn.id) ? 'border-violet-900 bg-indigo-50' : 'border-light-gray'} rounded-lg h-20 px-5`}>
       <div className='flex gap-x-5'>
@@ -38,7 +31,7 @@ const AddOnCard = ({ addOn }) => {
         </div>
       </div>
       <div className='price'>
-        <p>{selectedPlan === 'monthly' ? `+$${addOn.monthly}/mo` :  `+$${addOn.yearly}/yr`}</p>
+        <p>{selectedPlan.type === 'monthly' ? `+$${addOn.monthly}/mo` : `+$${addOn.yearly}/yr`}</p>
       </div>
     </div>
   );
