@@ -29,14 +29,14 @@ const PersonelInfoForm = () => {
   };
 
   return (
-    <div className='form-section flex items-center flex-col gap-y-8 w-full px-24 pt-10'>
+    <div className='form-section flex items-center flex-col gap-y-8 w-full px-24 pt-10 relative'>
       <div className='form-header w-full flex flex-col gap-y-1'>
         <h1 className='text-h1 text-marine-blue font-black'>Personal info</h1>
         <p className='text-cool-gray '>Please provide your name, email address, and phone number.</p>
       </div>
       <div className='w-full'>
         <form className='flex flex-col gap-y-5' action=''>
-          <div className='name-input pr-3'>
+          <div className='name-input'>
             <div className='label-err flex justify-between'>
               <label className='text-marine-blue' htmlFor='name'>
                 Name
@@ -57,7 +57,7 @@ const PersonelInfoForm = () => {
               value={name}
             />
           </div>
-          <div className='email-input pr-3'>
+          <div className='email-input'>
             <div className='label-err flex justify-between'>
               <label className='text-marine-blue' htmlFor='email'>
                 Email Address
@@ -78,7 +78,7 @@ const PersonelInfoForm = () => {
               value={email}
             />
           </div>
-          <div className='phone-input pr-3'>
+          <div className='phone-input'>
             <div className='label-err flex justify-between'>
               <label className='text-marine-blue' htmlFor='phone-number'>
                 Phone Number
@@ -97,14 +97,16 @@ const PersonelInfoForm = () => {
               value={phone}
             />
           </div>
-          <button
-            className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end mt-16 hover:bg-button-hover-blue'
-            type='submit'
-            onClick={handleSubmit}
-          >
-            Next Step
-          </button>
         </form>
+      </div>
+      <div className='flex justify-end absolute bottom-4 right-24'>
+        <button
+          className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
+          type='submit'
+          onClick={handleSubmit}
+        >
+          Next Step
+        </button>
       </div>
     </div>
   );
