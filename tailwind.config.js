@@ -23,7 +23,12 @@ module.exports = {
       },
       backgroundImage: {
         'desktop-sidebar': "url('/src/assets/images/bg-sidebar-desktop.svg')",
+        'mobile-sidebar' : "url('/src/assets/images/bg-sidebar-mobile.svg')"
       },
+      screens : {
+        'sm' : '375px',
+        'lg' : '1350px',
+      }
     },
   },
   plugins: [],
