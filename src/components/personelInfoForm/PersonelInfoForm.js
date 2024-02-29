@@ -29,7 +29,7 @@ const PersonelInfoForm = () => {
   };
 
   return (
-    <div className='form-section flex items-center flex-col gap-y-8 w-full px-24 pt-10 relative'>
+    <div className='form-section flex items-center flex-col gap-y-8 px-24 pt-10 relative  sm:pb-10 lg:pb-0 lg:w-full sm:w-[95%] sm:mx-auto sm:-my-16 lg:my-0 sm:bg-white sm:rounded-lg'>
       <div className='form-header w-full flex flex-col gap-y-1'>
         <h1 className='text-h1 text-marine-blue font-black'>Personal info</h1>
         <p className='text-cool-gray '>Please provide your name, email address, and phone number.</p>
@@ -99,7 +99,7 @@ const PersonelInfoForm = () => {
           </div>
         </form>
       </div>
-      <div className='flex justify-end absolute bottom-4 right-24'>
+      <div className='flex justify-end absolute lg:right-24 sm:right-0 lg:bottom-4 sm:-bottom-60 sm:w-full'>
         <button
           className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
           type='submit'
