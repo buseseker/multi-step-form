@@ -26,7 +26,8 @@ module.exports = {
         'mobile-sidebar' : "url('/src/assets/images/bg-sidebar-mobile.svg')"
       },
       screens : {
-        'sm' : '375px',
+        'xs' : '375px',
+        'sm' : '675px',
         'lg' : '1350px',
       }
     },
