@@ -29,9 +29,9 @@ const PersonelInfoForm = () => {
   };
 
   return (
-    <div className='form-section flex items-center flex-col gap-y-8 px-24 pt-10 relative  xs:pb-10 sm:pb-10 lg:pb-0 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+    <div className='form-section flex items-center flex-col gap-y-8 px-24 pt-10 relative  xs:px-6 xs:pb-10 sm:pb-10 lg:pb-0 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
       <div className='form-header w-full flex flex-col gap-y-1'>
-        <h1 className='text-h1 text-marine-blue font-black'>Personal info</h1>
+        <h1 className='text-h1 text-marine-blue font-black xs:text-sm'>Personal info</h1>
         <p className='text-cool-gray '>Please provide your name, email address, and phone number.</p>
       </div>
       <div className='w-full'>
@@ -99,7 +99,7 @@ const PersonelInfoForm = () => {
           </div>
         </form>
       </div>
-      <div className='flex justify-end absolute lg:right-24 xs:right-0 sm:right-0 lg:bottom-4 xs:-bottom-60 sm:-bottom-60 xs:w-full sm:w-full'>
+      <div className='flex justify-end absolute lg:right-5 xs:right-0  lg:bottom-4 xs:-bottom-20 sm:-bottom-60 xs:w-full sm:w-full'>
         <button
           className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
           type='submit'
