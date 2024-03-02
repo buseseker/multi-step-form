@@ -99,7 +99,7 @@ const PersonelInfoForm = () => {
           </div>
         </form>
       </div>
-      <div className='flex justify-end absolute lg:right-5 xs:right-0  lg:bottom-4 xs:-bottom-20 sm:-bottom-60 xs:w-full sm:w-full'>
+      <div className='flex justify-end absolute lg:right-40 xs:right-0  lg:bottom-4 xs:-bottom-20 sm:-bottom-60 xs:w-full sm:w-full'>
         <button
           className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
           type='submit'

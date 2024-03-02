@@ -15,7 +15,7 @@ const SelectedPlanCard = ({ plan }) => {
 
   return (
     <div
-      className={`card w-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === plan.name ? 'border border-violet-900' : 'border border-light-gray'}`}
+      className={`card lg:w-1/3 sm:w-1/3 xs:h-1/3 rounded-lg p-5 cursor-pointer ${selectedCard === plan.name ? 'border border-violet-900' : 'border border-light-gray'}`}
       onClick={() => handleCardClick(plan)}
     >
       <img className='mb-10' src={plan.icon} alt='' />
