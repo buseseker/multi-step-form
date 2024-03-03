@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SelectedServiceContext } from '../../context/SelectedServiceContext';
 import SelectedPlanCard from '../../components/selectedPlanCard/SelectedPlanCard';
@@ -26,8 +26,8 @@ const SelectPlan = () => {
 
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
-      <div className='form-container flex rounded-lg lg:h-[65vh] xs:h-full sm:h-full lg:w-3/5 xs:w-full sm:w-full lg:bg-white xs:bg-light-gray sm:bg-light-gray xs:flex-col sm:flex-col lg:flex-row lg:p-4 '>
-        <div className='form-sidebar flex p-8 gap-y-8 bg-center bg-no-repeat bg-cover lg:flex-col xs:justify-center sm:justify-center lg:justify-start xs:p-10 sm:p-10 lg:h-full xs:h-[25%] sm:h-[25%] lg:w-[45%] xs:w-full sm:w-full lg:bg-desktop-sidebar xs:bg-mobile-sidebar sm:bg-mobile-sidebar lg:rounded-xl'>
+      <div className='plan-container flex rounded-lg lg:h-[65vh] xs:h-full sm:h-full lg:w-3/5 xs:w-full sm:w-full lg:bg-white xs:bg-light-gray sm:bg-light-gray xs:flex-col sm:flex-col lg:flex-row lg:p-4 '>
+        <div className='plan-sidebar flex p-8 gap-y-8 bg-center bg-no-repeat bg-cover lg:flex-col xs:justify-center sm:justify-center lg:justify-start xs:p-10 sm:p-10 lg:h-full xs:h-[25%] sm:h-[25%] lg:w-[45%] xs:w-full sm:w-full lg:bg-desktop-sidebar xs:bg-mobile-sidebar sm:bg-mobile-sidebar lg:rounded-xl'>
           <div className='step flex lg:items-center gap-x-4 '>
             <div className='step-number flex justify-center items-center border border-white w-10 h-10 rounded-full'>
               <p className='text-white'>1</p>
@@ -65,7 +65,7 @@ const SelectPlan = () => {
             </div>
           </div>
         </div>
-        <div className='plan-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 px-24 pt-10 lg:pb-10 sm:pb-10 xs:pb-2 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+        <div className='plan-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 lg:px-24 pt-10 lg:pb-10 sm:pb-10 xs:pb-2 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
           <div className='plan-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
             <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Select your plan</h1>
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
