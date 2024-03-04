@@ -70,7 +70,7 @@ const SummaryCard = () => {
       <div className='flex justify-between bg-white w-full pr-5 pl-5'>
         <p className='text-cool-gray'>{`Total ${selectedPlan.type === 'monthly' ? '(per month)' : '(per year)'}`}</p>
         <p className='text-purplish-blue font-black text-xl'>
-          +${getTotalPrice()}
+          ${getTotalPrice()}
           {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
         </p>
       </div>
