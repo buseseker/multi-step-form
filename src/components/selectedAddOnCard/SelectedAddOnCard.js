@@ -9,7 +9,7 @@ const SelectedAddOnCard = ({ selectedAddOn }) => {
   }, []);
 
   return (
-    <div className='summary flex justify-between'>
+    <div className='add-on flex justify-between'>
       <p className='text-cool-gray'>{selectedAddOn.name}</p>
       <p>{selectedPlan.type === 'monthly' ? `+$${selectedAddOn.monthly}/mo` : `+$${selectedAddOn.yearly}/yr`}</p>
     </div>
