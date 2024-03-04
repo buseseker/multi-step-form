@@ -31,7 +31,7 @@ const PersonelInfoForm = () => {
   return (
     <div className='form-section flex items-center flex-col gap-y-8 pt-10 relative lg:px-24  xs:px-6 xs:pb-10 sm:pb-10 lg:pb-0 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
       <div className='form-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
-        <h1 className='text-h1 text-marine-blue font-black xs:text-m'>Personal info</h1>
+        <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Personal info</h1>
         <p className='text-cool-gray '>Please provide your name, email address, and phone number.</p>
       </div>
       <div className='w-full lg:px-16 sm:px-24 '>
