@@ -8,6 +8,9 @@ module.exports = {
         m: '1.5rem',
         xs: '0.8rem',
       },
+      height: {
+        '38': '38rem',
+      },
       fontFamily: {
         ubuntu: ['Ubuntu', 'sans-serif'],
       },

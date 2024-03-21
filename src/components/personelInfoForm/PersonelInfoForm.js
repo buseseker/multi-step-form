@@ -29,12 +29,12 @@ const PersonelInfoForm = () => {
   };
 
   return (
-    <div className='form-section flex items-center flex-col gap-y-8 pt-10 relative lg:px-24  xs:px-6 xs:pb-10 sm:pb-10 lg:pb-0 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
-      <div className='form-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
+    <div className='form-section flex items-center flex-col gap-y-8 pt-10 relative xs:px-6 xs:pb-10 sm:pb-10 lg:pb-0 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+      <div className='form-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-16'>
         <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Personal info</h1>
         <p className='text-cool-gray '>Please provide your name, email address, and phone number.</p>
       </div>
-      <div className='w-full lg:px-16 sm:px-24 '>
+      <div className='w-full sm:px-16 flex flex-col gap-y-24 '>
         <form className='flex flex-col gap-y-5' action=''>
           <div className='name-input'>
             <div className='label-err flex justify-between'>
@@ -98,15 +98,13 @@ const PersonelInfoForm = () => {
             />
           </div>
         </form>
-      </div>
-      <div className='flex justify-end absolute lg:right-40 xs:right-0  lg:bottom-4 xs:-bottom-20 sm:-bottom-60 xs:w-full sm:w-full'>
-        <button
+        <a
           className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
           type='submit'
           onClick={handleSubmit}
         >
           Next Step
-        </button>
+        </a>
       </div>
     </div>
   );

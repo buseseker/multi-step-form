@@ -4,8 +4,8 @@ import PersonelInfoForm from '../../components/personelInfoForm/PersonelInfoForm
 const PersonelInfo = () => {
   return (
     <div className='body bg-light-gray h-screen flex justify-center items-center font-ubuntu'>
-      <div className='form-container flex rounded-lg lg:h-[65vh] xs:h-full sm:h-full lg:w-3/5 xs:w-full sm:w-full lg:bg-white xs:bg-light-gray sm:bg-light-gray xs:flex-col sm:flex-col lg:flex-row lg:p-4 '>
-        <div className='form-sidebar flex p-8 gap-y-8 bg-center bg-no-repeat bg-cover  lg:flex-col xs:justify-center sm:justify-center lg:justify-start xs:p-10 sm:p-10 lg:h-full xs:h-[25%] sm:h-[25%] lg:w-[45%] xs:w-full sm:w-full lg:bg-desktop-sidebar xs:bg-mobile-sidebar sm:bg-mobile-sidebar lg:rounded-xl'>
+      <div className='form-container flex rounded-lg lg:h-38 xs:h-full sm:h-full lg:w-3/5 xs:w-full sm:w-full lg:bg-white xs:bg-light-gray sm:bg-light-gray xs:flex-col sm:flex-col lg:flex-row lg:p-4 '>
+        <div className='form-sidebar flex p-8 gap-y-8 bg-center bg-no-repeat bg-cover lg:flex-col lg:h-full xs:justify-center sm:justify-center lg:justify-start xs:p-10 sm:p-10 xs:h-[25%] sm:h-[25%] lg:w-[40%] xs:w-full sm:w-full lg:bg-desktop-sidebar xs:bg-mobile-sidebar sm:bg-mobile-sidebar lg:rounded-xl'>
           <div className='step flex lg:items-center gap-x-4 '>
             <div className='step-number flex justify-center items-center bg-light-blue w-10 h-10 rounded-full'>
               <p className='text-black font-extrabold'>1</p>
