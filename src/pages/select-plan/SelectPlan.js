@@ -65,7 +65,7 @@ const SelectPlan = () => {
             </div>
           </div>
         </div>
-        <div className='plan-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 pt-10 lg:pb-10 sm:pb-10 xs:pb-2 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+        <div className='plan-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 pt-10 lg:pb-10 sm:pb-10 xs:pb-10 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
           <div className='plan-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
             <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Select your plan</h1>
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
@@ -120,7 +120,7 @@ const SelectPlan = () => {
                 Go Back
               </a>
               <a
-                className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max self-end hover:bg-button-hover-blue'
+                className='btn bg-marine-blue text-white py-3 px-6 rounded-lg w-max hover:bg-button-hover-blue'
                 onClick={handleNextStep}
               >
                 Next Step

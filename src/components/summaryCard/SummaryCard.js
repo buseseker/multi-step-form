@@ -41,52 +41,54 @@ const SummaryCard = () => {
     navigate('/thank-you');
   };
   return (
-    <div className='summary-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 lg:px-24 pt-10 pb-10 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
-          <div className='summary-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
-          <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Finishing up</h1>
+    <div className='summary-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 lg:px-6 pt-10 pb-10 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+      <div className='summary-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
+        <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Finishing up</h1>
         <p className='text-cool-gray '>Double-check everything looks OK before confirming.</p>
       </div>
-      <div className='flex flex-col gap-y-2 w-full bg-magnolia p-5 rounded-lg'>
-        <div className='summary'>
-          <div className='service-text flex justify-between mb-2'>
-            <p className='text-marine-blue font-black'>
-              {selectedCard} {selectedPlan.type === 'monthly' ? '(Monthly)' : '(Yearly)'}
-            </p>
-            <div className='service-price text-marine-blue font-black'>
-              <p>
-                ${getPlanPrice()}
-                {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
+      <div className='selection flex flex-col items-center gap-y-8 xs:w-full lg:px-16'>
+        <div className='flex flex-col gap-y-2 w-full bg-magnolia p-5 rounded-lg'>
+          <div className='summary'>
+            <div className='service-text flex justify-between mb-2'>
+              <p className='text-marine-blue font-black'>
+                {selectedCard} {selectedPlan.type === 'monthly' ? '(Monthly)' : '(Yearly)'}
               </p>
+              <div className='service-price text-marine-blue font-black'>
+                <p>
+                  ${getPlanPrice()}
+                  {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
+                </p>
+              </div>
             </div>
           </div>
+          <hr />
+          <div className='flex flex-col gap-y-5 mt-2'>
+            {selectedAddOns.map((selectedAddOn) => {
+              return <SelectedAddOnCard key={selectedAddOn.id} selectedAddOn={selectedAddOn} />;
+            })}
+          </div>
         </div>
-        <hr />
-        <div className='flex flex-col gap-y-5 mt-2'>
-          {selectedAddOns.map((selectedAddOn) => {
-            return <SelectedAddOnCard key={selectedAddOn.id} selectedAddOn={selectedAddOn} />;
-          })}
+        <div className='flex justify-between bg-white w-full pr-5 pl-5'>
+          <p className='text-cool-gray'>{`Total ${selectedPlan.type === 'monthly' ? '(per month)' : '(per year)'}`}</p>
+          <p className='text-purplish-blue font-black text-xl'>
+            ${getTotalPrice()}
+            {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
+          </p>
         </div>
-      </div>
-      <div className='flex justify-between bg-white w-full pr-5 pl-5'>
-        <p className='text-cool-gray'>{`Total ${selectedPlan.type === 'monthly' ? '(per month)' : '(per year)'}`}</p>
-        <p className='text-purplish-blue font-black text-xl'>
-          ${getTotalPrice()}
-          {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
-        </p>
-      </div>
-      <div className='btn w-full h-[60px] flex justify-between absolute lg:bottom-4 sm:-bottom-60 xs:-bottom-20 lg:px-20 '>
-        <button
-              className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max self-end  mt-16 hover:text-marine-blue'
-              onClick={handleGoBack}
-        >
-          Go Back
-        </button>
-        <button
-          className='btn bg-purplish-blue text-white py-3 px-6 rounded-lg w-max self-end  mt-16 hover:bg-button-hover-blue'
-          onClick={handleConfirm}
-        >
-          Confirm
-        </button>
+        <div className='btn w-full flex justify-between mt-40 '>
+          <a
+            className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max hover:text-marine-blue'
+            onClick={handleGoBack}
+          >
+            Go Back
+          </a>
+          <a
+            className='btn bg-purplish-blue text-white py-3 px-6 rounded-lg w-max hover:bg-button-hover-blue'
+            onClick={handleConfirm}
+          >
+            Confirm
+          </a>
+        </div>
       </div>
     </div>
   );
