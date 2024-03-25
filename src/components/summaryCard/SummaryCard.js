@@ -75,7 +75,7 @@ const SummaryCard = () => {
             {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
           </p>
         </div>
-            <div className='btn w-full flex justify-between sm:mt-24 xs:mt-14 lg:absolute lg:bottom-4 lg:px-24 '>
+            <div className='btn w-full flex justify-between sm:mt-24 xs:mt-2 lg:absolute lg:bottom-4 lg:px-24 '>
           <a
             className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max hover:text-marine-blue'
             onClick={handleGoBack}
