@@ -57,18 +57,18 @@ const AddOns = () => {
             </div>
           </div>
         </div>
-        <div className='add-ons-section flex items-center flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 pt-10 lg:pb-10 sm:pb-10 xs:pb-10 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
+        <div className='add-ons-section flex flex-col lg:gap-y-8 sm:gap-y-8 xs:gap-y-4 pt-10 lg:pb-10 sm:pb-10 xs:pb-10 relative xs:px-6 lg:w-full xs:w-[95%] sm:w-[95%] xs:mx-auto sm:mx-auto xs:-my-16 sm:-my-16 lg:my-0 xs:bg-white sm:bg-white xs:rounded-lg sm:rounded-lg'>
           <div className='add-ons-header w-full flex flex-col gap-y-1 lg:px-16 sm:px-24'>
             <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Pick add-ons</h1>
             <p className='text-cool-gray '>Add-ons help enhance your gaming experience.</p>
           </div>
-          <div className='selection flex flex-col items-center gap-y-8 xs:w-full'>
+          <div className='selection flex flex-col items-center lg:gap-y-8 lg:gap-y-8 xs:gap-y-4 8xs:w-full'>
             <div className='add-ons-cards flex flex-col gap-y-5 w-full lg:px-16 sm:px-24'>
               {addOns.map((addOn) => {
                 return <AddOnCard key={addOn.id} addOn={addOn} />;
               })}
             </div>
-            <div className='btn w-full flex justify-between mt-12 lg:px-16 sm:px-24'>
+            <div className='btn w-full flex justify-between lg:mt-12 sm:mt-4 xs:mt-4 lg:px-16 sm:px-24'>
               <a
                 className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max hover:text-marine-blue'
                 onClick={handleGoBack}

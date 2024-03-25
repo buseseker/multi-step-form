@@ -70,7 +70,7 @@ const SelectPlan = () => {
             <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Select your plan</h1>
             <p className='text-cool-gray '>You have the option of monthly or yearly billing.</p>
           </div>
-          <div className='selection flex flex-col items-center gap-y-8 xs:w-full'>
+          <div className='selection flex flex-col items-center gap-y-4 xs:w-full'>
             <div className='plan-cards flex lg:flex-row sm:flex-row xs:flex-col gap-x-4 w-full lg:px-16 sm:px-24 xs:gap-y-2'>
               {plans.map((plan) => {
                 return <SelectedPlanCard key={plan.id} plan={plan} />;
@@ -112,7 +112,7 @@ const SelectPlan = () => {
                 </div>
               </div>
             </div>
-            <div className='btn w-full flex justify-between mt-14 lg:px-16 sm:px-24'>
+            <div className='btn w-full flex justify-between lg:mt-14 sm:mt-14 xs:mt-2 lg:px-16 sm:px-24'>
               <a
                 className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max hover:text-marine-blue'
                 onClick={handleGoBack}

@@ -15,7 +15,7 @@ const SelectedPlanCard = ({ plan }) => {
 
   return (
     <div
-      className={`card lg:w-1/3 sm:w-1/3 xs:h-1/3 sm:h-full lg:h-full rounded-lg lg:p-5 sm:p-5 xs:p-2 cursor-pointer ${
+      className={`card lg:w-1/3 sm:w-1/3 xs:h-1/3 sm:h-full lg:h-full rounded-lg lg:p-5 sm:p-5 xs:px-2 cursor-pointer ${
         selectedCard === plan.name ? 'border border-violet-900' : 'border border-light-gray'
       } xs:flex xs:gap-x-4  sm:block lg:block`}
       onClick={() => handleCardClick(plan)}
