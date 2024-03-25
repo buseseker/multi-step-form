@@ -46,7 +46,7 @@ const SummaryCard = () => {
         <h1 className='lg:text-h1 text-marine-blue font-black xs:text-m'>Finishing up</h1>
         <p className='text-cool-gray '>Double-check everything looks OK before confirming.</p>
       </div>
-      <div className='selection flex flex-col items-center gap-y-8 xs:w-full lg:px-16'>
+      <div className='selection flex flex-col items-center gap-y-8 xs:w-full lg:px-16 sm:px-24'>
         <div className='flex flex-col gap-y-2 w-full bg-magnolia p-5 rounded-lg'>
           <div className='summary'>
             <div className='service-text flex justify-between mb-2'>
@@ -75,7 +75,7 @@ const SummaryCard = () => {
             {selectedPlan.type === 'monthly' ? '/mo' : '/yr'}
           </p>
         </div>
-        <div className='btn w-full flex justify-between mt-40 '>
+            <div className='btn w-full flex justify-between sm:mt-24 xs:mt-14 lg:absolute lg:bottom-4 lg:px-24 '>
           <a
             className='btn text-cool-gray font-extrabold py-3 px-6 rounded-lg w-max hover:text-marine-blue'
             onClick={handleGoBack}
